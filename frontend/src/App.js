@@ -1,21 +1,19 @@
 import React from 'react';
-import Sidebar from './components/Sidebar';
-import FileExplorer from './components/FileExplorer';
-import Ponds from './components/Ponds';
-import Settings from './components/Settings';
+import Header from './components/Header';  // Import the Header component
+import Sidebar from './components/Sidebar';  // Assuming you have a Sidebar component
+import FileExplorer from './components/FileExplorer';  // Assuming this is your file explorer component
 import './styles.css';
 
-const App = () => {
+function App() {
   return (
-    <div className="app-container">
-      <Sidebar />
+    <div className="App">
+      <Header />  {/* Add the header at the top */}
       <div className="content">
-        {/* Content can be conditionally rendered based on active menu item */}
+        <Sidebar />
         <FileExplorer />
-        {/* Add Ponds and Settings components as needed */}
       </div>
     </div>
   );
-};
+}
 
 export default App;
