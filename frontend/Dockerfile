@@ -18,7 +18,7 @@ WORKDIR /app
 # Copy the generated package-lock.json from the builder stage
 COPY --from=builder /app/package-lock.json ./
 COPY package.json ./
-RUN npm install
+RUN npm install react-router-dom
 
 # Copy the rest of the application code
 COPY . .

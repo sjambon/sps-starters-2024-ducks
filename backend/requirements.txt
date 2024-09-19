@@ -5,4 +5,3 @@ Flask-Migrate
 Flask-Login
 minio
 psycopg2-binary
-Flask-JWT-Extended
