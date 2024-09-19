@@ -1,14 +1,15 @@
-# DUCKS - Document Upload, Collaboration, and Knowledge Storage
+# starters-2024-ducks 
 
-## Overview
+DUCKS - Document Upload, Collaboration, and Knowledge Storage
 
-DUCKS, Document Upload, Collaboration, and Knowledge Storage, is a modern application that organizes data using a duck-themed framework.
+## Requirements
 
-### Components
+- [Docker](https://docs.docker.com/engine/install/)
+- [Docker compose](https://docs.docker.com/compose/install/)
 
-- **Frontend**: React application for user interaction.
-- **Backend**: Flask API for managing data.
-- **Database**: PostgreSQL for storage.
-- **S3 Storage**: For file uploads.
+## Setup
 
-### Getting Started
+1. Clone `main` branch
+2. Navigate to the the root of the repository
+3. Run `docker compose up -d`
+4. Open your browser and go to `http://localhost:8080`
