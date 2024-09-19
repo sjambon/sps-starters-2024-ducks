@@ -12,4 +12,4 @@ DUCKS - Document Upload, Collaboration, and Knowledge Storage
 1. Clone `main` branch
 2. Navigate to the the root of the repository
 3. Run `docker compose up -d`
-4. Open your browser and go to `http://localhost:8080`
+4. Open your browser and go to `http://localhost:3000`
