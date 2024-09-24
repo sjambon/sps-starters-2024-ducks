@@ -31,6 +31,7 @@ jobs:
       - name: Build and Push to ACR
         uses: docker/build-push-action@v2
         with:
+          context: ./backend 
           push: true
           tags: "latest"
           file: ./backend/Dockerfile
