@@ -26,7 +26,7 @@ jobs:
         with:
           login-server: "spscontainerregistryae.azurecr.io"
           username: "spsContainerRegistryAE"
-          password: "chOVpz/FQpxGzF3sO71wuAnY4RwRvkxbttotp80f9Z+ACRClhWXx"
+          password: "B/71bfE3I/cGqLaNiBVXU1+o18brPuRvFH62owuPPt+ACRCwpat2"
 
       - name: Build and Push to ACR
         uses: docker/build-push-action@v2
