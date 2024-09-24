@@ -33,6 +33,6 @@ jobs:
         with:
           context: ./backend 
           push: true
-          tags: "latest"
+          tags: "spscontainerregistryae.azurecr.io/backend:latest"
           file: ./backend/Dockerfile
           platforms: linux/amd64
