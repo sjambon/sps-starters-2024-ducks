@@ -1,68 +1,33 @@
-name: Build and Push Docker Images
-
+name: Build and Push to ACR
 on:
   push:
     branches:
-      - main
-  pull_request:
-    branches:
-      - main
+      - 'master'
 
 jobs:
-  backend:
-    name: Build and Push Backend Docker Image
+  build:
+    name: 'Build and Push to ACR'
     runs-on: ubuntu-latest
 
-    steps:
-      # Checkout the repository
-      - name: Checkout code
-        uses: actions/checkout@v3
-
-      # Log in to Docker registry
-      - name: Log in to Docker Hub
-        uses: azure/docker-login@v2
-        with:
-          login-server: "spscontainerregistryae.azurecr.io" # default: index.docker.io
-          username: "spsContainerRegistryAE"
-          password: "chOVpz/FQpxGzF3sO71wuAnY4RwRvkxbttotp80f9Z+ACRClhWXx"
-
-      # Build and tag the backend Docker image
-      - name: Build and tag the backend Docker image
-        working-directory: ./backend
-        run: |
-          docker build -t test/backend:latest .
-
-      # Push the backend Docker image
-      - name: Push backend Docker image
-        working-directory: ./backend
-        run: |
-          docker push test/backend:latest
-
-  frontend:
-    name: Build and Push Frontend Docker Image
-    runs-on: ubuntu-latest
+    defaults:
+      run:
+        shell: bash
 
     steps:
-      # Checkout the repository
-      - name: Checkout code
-        uses: actions/checkout@v3
+      - name: Checkout
+        uses: actions/checkout@v4
 
-      # Log in to Docker registry
-      - name: Log in to Docker Hub
-        uses: azure/docker-login@v2
+      - name: Docker Login
+        uses: azure/docker-login@v1
         with:
-          login-server: "spscontainerregistryae.azurecr.io" # default: index.docker.io
-          username: "spsContainerRegistryAE"
-          password: "chOVpz/FQpxGzF3sO71wuAnY4RwRvkxbttotp80f9Z+ACRClhWXx"
+          login-server: ${{ secrets.AZURE_URL }}
+          username: ${{ secrets.ACR_USERNAME }}
+          password: ${{ secrets.ACR_PASSWORD }}
 
-      # Build and tag the frontend Docker image
-      - name: Build and tag the frontend Docker image
-        working-directory: ./frontend
-        run: |
-          docker build -t test/frontend:latest .
-
-      # Push the frontend Docker image
-      - name: Push frontend Docker image
-        working-directory: ./frontend
-        run: |
-          docker push test/frontend:latest
+      - name: Build and Push to ACR
+        uses: docker/build-push-action@v2
+        with:
+          push: true
+          tags: ${{ secrets.IMAGE_TAG }}
+          file: Dockerfile
+          platforms: linux/amd64
