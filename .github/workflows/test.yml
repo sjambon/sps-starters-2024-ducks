@@ -33,5 +33,5 @@ jobs:
         with:
           push: true
           tags: "latest"
-          file: /backend/Dockerfile
+          file: ./backend/Dockerfile
           platforms: linux/amd64
