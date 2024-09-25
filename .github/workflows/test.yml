@@ -20,6 +20,9 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+
+      - name: Print Username (Not recommended in production)
+        run: echo "Username is: ${{ secrets.USERNAME }}"
         
       - name: Docker Login
         uses: azure/docker-login@v1
