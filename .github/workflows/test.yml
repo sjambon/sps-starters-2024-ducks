@@ -33,7 +33,7 @@ jobs:
         with:
           context: ./backend 
           push: true
-          tags: "spscontainerregistryae.azurecr.io/ducks/backend:${{ GITHUB_SHA }}"
+          tags: "spscontainerregistryae.azurecr.io/ducks/backend:${{ github.sha }}"
           file: ./backend/Dockerfile
           platforms: linux/amd64
 
@@ -42,7 +42,7 @@ jobs:
         with:
           context: ./frontend 
           push: true
-          tags: "spscontainerregistryae.azurecr.io/ducks/frontend:${{ GITHUB_SHA }}"
+          tags: "spscontainerregistryae.azurecr.io/ducks/frontend:${{ github.sha }}"
           file: ./frontend/Dockerfile
           platforms: linux/amd64
 
