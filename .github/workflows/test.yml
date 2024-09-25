@@ -25,7 +25,7 @@ jobs:
         uses: azure/docker-login@v1
         with:
           login-server: "spscontainerregistryae.azurecr.io"
-          username: ${{ secrets.username }}
+          username: ${{ secrets.Username }}
           password: "WIu94otPFv+CP/V2VvZu86ZyzauwM3DEIrbDbBAvC1+ACRDaznPi"
 
       - name: Build and Push backend to ACR
