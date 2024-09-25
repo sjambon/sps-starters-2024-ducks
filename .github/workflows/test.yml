@@ -24,7 +24,7 @@ jobs:
       - name: Docker Login
         uses: azure/docker-login@v1
         with:
-          login-server: "spscontainerregistryae.azurecr.io"
+          login-server: ${{ secrets.LOGIN_SERVER }}
           username: "spsContainerRegistryAE"
           password: "WIu94otPFv+CP/V2VvZu86ZyzauwM3DEIrbDbBAvC1+ACRDaznPi"
 
