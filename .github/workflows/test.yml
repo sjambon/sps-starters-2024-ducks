@@ -28,7 +28,7 @@ jobs:
           username: "spsContainerRegistryAE"
           password: "WIu94otPFv+CP/V2VvZu86ZyzauwM3DEIrbDbBAvC1+ACRDaznPi"
 
-      - name: Build and Push to ACR
+      - name: Build and Push backend to ACR
         uses: docker/build-push-action@v2
         with:
           context: ./backend 
@@ -36,3 +36,13 @@ jobs:
           tags: "spscontainerregistryae.azurecr.io/backend:latest"
           file: ./backend/Dockerfile
           platforms: linux/amd64
+
+      - name: Build and Push frontend to ACR
+        uses: docker/build-push-action@v2
+        with:
+          context: ./frontend 
+          push: true
+          tags: "spscontainerregistryae.azurecr.io/frontend:latest"
+          file: ./frontend/Dockerfile
+          platforms: linux/amd64
+      
