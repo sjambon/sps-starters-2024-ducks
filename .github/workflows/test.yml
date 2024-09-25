@@ -45,4 +45,5 @@ jobs:
           tags: "spscontainerregistryae.azurecr.io/frontend:latest"
           file: ./frontend/Dockerfile
           platforms: linux/amd64
+          
       
